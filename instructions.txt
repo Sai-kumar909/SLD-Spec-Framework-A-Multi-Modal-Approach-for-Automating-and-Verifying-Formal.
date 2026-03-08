@@ -1,0 +1,65 @@
+1. Prerequisites (Software Installation)
+Before running the Python code, you must install the two "engines" that power the logic and the visuals.
+------>A. Install Graphviz (The Graph Engine)
+Download the Windows EXE Installer from the Graphviz Download Page.
+
+CRITICAL: During installation, select "Add Graphviz to the system PATH for all users".
+
+Restart your computer after installation finishes.
+
+---->B. Install Ollama (The AI Engine)
+Download and install Ollama for Windows.
+
+Open a terminal (PowerShell or CMD) and run the following command to download the model:
+
+PowerShell
+ollama pull llama3
+(Note: This might take a few minutes depending on your internet speed).
+
+---->Install Python Libraries
+Open your terminal in the SLD_Spec_Project folder and run:
+
+PowerShell
+pip install -r requirements.txt
+
+
+---->3. Running the Project
+Follow these steps every time you want to start the app:
+
+Step 1: Start Ollama
+Ensure the Ollama application is running in your system tray (bottom right of your taskbar).
+
+Step 2: Run the Flask Server
+In your terminal, navigate to your project folder and run:
+
+PowerShell
+python app.py
+Step 3: Access the Dashboard
+Open your web browser (Chrome, Edge, etc.).
+
+Go to the following address: http://127.0.0.1:5000
+
+4. How to Test the Pipeline
+Once the dashboard is open:
+
+Click on the Home or Process page.
+
+Select Python or C from the dropdown.
+
+Paste one of the test snippets (like the Circular Shift C code).
+
+Click START_SLD_ANALYSIS.
+
+Why it takes time:
+Your computer is performing a complex multi-stage process:
+
+Slicing: Creating an Abstract Syntax Tree (AST) to isolate logic.
+
+Generating PDG: Graphviz renders the Data Dependency graph.
+
+AI Inference: Ollama runs Llama 3 twice (once to guess, once to judge).
+
+5. Troubleshooting Common Issues
+"Graphviz not found": You forgot to add it to the PATH or didn't restart your PC/VS Code.
+
+"Ollama Connection Error": Ensure the Ollama app is actually running and you have run ollama pull llama3.
